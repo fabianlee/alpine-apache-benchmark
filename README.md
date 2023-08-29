@@ -16,6 +16,16 @@ This is triggered by creating a tag that looks like the semantic tag that starts
 docker pull ghcr.io/fabianlee/alpine-apache-benchmark:latest
 ```
 
+# Running image in Kubernetes
+
+```
+# opens to shell access
+kubectl run -i --rm --tty load-generator --image=ghcr.io/fabianlee/alpine-apache-benchmark:latest --restart=Never 
+
+# runs Apache Benchmark with arguments, then exits
+kubectl run -i --rm --tty load-generator --image=ghcr.io/fabianlee/alpine-apache-benchmark:latest --restart=Never --command ab -- -n4 -c2 https://www.google.com/
+```
+
 # Creating tag
 
 ```

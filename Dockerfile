@@ -10,8 +10,11 @@ RUN apk add --no-cache curl apache2-utils
 RUN addgroup -S mygroup && adduser -S myuser -G mygroup
 USER myuser
 
-# opens to shell access
+#
+# opens to shell access by default
 # kubectl run -i --rm --tty load-generator --image=ghcr.io/fabianlee/alpine-apache-benchmark:latest --restart=Never 
+#
 # runs Apache Benchmark with arguments
 # kubectl run -i --rm --tty load-generator --image=ghcr.io/fabianlee/alpine-apache-benchmark:latest --restart=Never --command ab -- -n4 -c2 https://www.google.com/
+#
 ENTRYPOINT [ "/bin/sh" ]
