@@ -3,9 +3,9 @@
 A compact OCI image built on Alpine, with apache2-utils package installed for Apache Benchmark load tester.
 
 
-# GitHub Workflow for building OCI image
+# GitHub Actions for building OCI image
 
-[github-actions-buildOCI.yml](.github/workflows/github-actions-buildOCI.yml) creates an OCI image using [Dockerfile](dockerfile).
+[github-actions-buildOCI.yml](.github/workflows/github-actions-buildOCI.yml) creates an OCI image using [Dockerfile](Dockerfile).
 
 This is triggered by creating a tag that looks like the semantic tag that starts with "v" (e.g. vX.Y.Z), and is published to the public [GitHub Container Registry](https://github.blog/2020-09-01-introducing-github-container-registry/).
 
