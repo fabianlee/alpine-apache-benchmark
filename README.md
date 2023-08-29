@@ -19,6 +19,12 @@ git commit -a -m "changes for new tag $newtag" && git push
 git tag $newtag && git push origin $newtag
 ```
 
+# Pulling image from GitHub Container Registry
+
+```
+docker pull ghcr.io/fabianlee/alpine-apache-benchmark:latest
+```
+
 # Deleting tag
 
 ```
