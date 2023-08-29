@@ -10,6 +10,10 @@ RUN apk add --no-cache curl apache2-utils
 RUN addgroup -S mygroup && adduser -S myuser -G mygroup
 USER myuser
 
-# if debugging
-ENTRYPOINT [ "/usr/bin/ab" ]
-CMD [ "" ]
+# works, pass arguments in (but no access to /bin/sh)
+#ENTRYPOINT [ "/usr/bin/ab" ]
+#CMD [ "" ]
+
+# try this to allow ab args, but also shell access
+ENTRYPOINT [ "/bin/sh" ]
+CMD [ "/usr/bin/ab" ]
