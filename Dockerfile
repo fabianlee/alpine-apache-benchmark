@@ -14,6 +14,6 @@ USER myuser
 #ENTRYPOINT [ "/usr/bin/ab" ]
 #CMD [ "" ]
 
-# try this to allow ab args, but also shell access
-ENTRYPOINT [ "/bin/sh" ]
-CMD [ "/usr/bin/ab" ]
+# did not work. try this to allow ab args, but also shell access
+#ENTRYPOINT [ "/bin/sh" ]
+#CMD [ "/usr/bin/ab" ]
