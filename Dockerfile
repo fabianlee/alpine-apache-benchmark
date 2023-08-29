@@ -12,4 +12,4 @@ USER myuser
 
 # if debugging
 ENTRYPOINT [ "/usr/bin/ab" ]
-CMD [ "--help" ]
+CMD [ "" ]
