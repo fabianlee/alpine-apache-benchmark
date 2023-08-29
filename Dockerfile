@@ -11,4 +11,5 @@ RUN addgroup -S mygroup && adduser -S myuser -G mygroup
 USER myuser
 
 # if debugging
-ENTRYPOINT [ "/bin/sh" ]
+#ENTRYPOINT [ "/bin/sh" ]
+CMD [ "/usr/bin/ab" ]
