@@ -43,4 +43,10 @@ git tag -d $todel && git push origin :refs/tags/$todel
 ```
 
 
+NOTES
 
+https://stackoverflow.com/questions/59248318/kubectl-run-command-vs-arguments
+
+Explains how:
+  * the command field in Kubernetes corresponds to the EntryPoint field in Docker
+  * the args field in Kubernetes corresponds to the Cmd field in Docker
