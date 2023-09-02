@@ -1,0 +1,10 @@
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: golang-hello-world-web-pdb
+spec:
+  minAvailable: 1 # one instance should be healthy and running at all times
+  selector:
+    matchLabels:
+      app: golang-hello-world-web
