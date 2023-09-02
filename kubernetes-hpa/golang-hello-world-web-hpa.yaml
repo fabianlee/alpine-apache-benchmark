@@ -1,5 +1,5 @@
 ---
-apiVersion: autoscaling/v2beta2 # v2 only starting at 1.26
+apiVersion: autoscaling/v2 # v2beta2 not valid starting at 1.26, only stable v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: golang-hello-world-web-hpa
