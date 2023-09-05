@@ -39,20 +39,10 @@ spec:
         sidecar.istio.io/inject: "false"
     spec:
 
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - golang-hello-world-web
-            topologyKey: "kubernetes.io/hostname"
-
       containers:
       - name: golang-hello-world-web
-        image: ghcr.io/fabianlee/docker-golang-hello-world-web:1.0.1
+        # using my container that has Prometheus metrics enabled
+        image: ghcr.io/fabianlee/docker-prom-golang-hello-world-web:1.0.2
         env:
 
         # default variables available to be overridden
