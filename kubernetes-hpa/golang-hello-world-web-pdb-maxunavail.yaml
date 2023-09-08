@@ -4,7 +4,7 @@ kind: PodDisruptionBudget
 metadata:
   name: golang-hello-world-web-pdb
 spec:
-  minAvailable: 1 # one instance should be healthy and running at all times
+  maxUnavailable: 1 # stresses availability - only 1 unavailable at a time
   selector:
     matchLabels:
       app: golang-hello-world-web

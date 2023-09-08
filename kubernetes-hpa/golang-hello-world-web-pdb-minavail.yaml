@@ -1,0 +1,10 @@
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: golang-hello-world-web-pdb
+spec:
+  minAvailable: 9 # loose availability requirements, only 1 needs to be healthy
+  selector:
+    matchLabels:
+      app: golang-hello-world-web
