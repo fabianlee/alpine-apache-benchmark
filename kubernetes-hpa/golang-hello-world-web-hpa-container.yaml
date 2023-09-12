@@ -1,0 +1,39 @@
+---
+apiVersion: autoscaling/v2 # v2beta2 not valid starting at 1.26, only stable v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: golang-hello-world-web-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: golang-hello-world-web
+  minReplicas: 1
+  maxReplicas: 3
+  metrics:
+  # targest specific container[], avoid secondary utilization (e.g. envoy sidecars, logging)
+  # https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#container-resource-metrics
+  - type: ContainerResource
+    resource:
+      name: cpu
+      container: golang-hello-world-web
+      target:
+        type: Utilization
+        averageUtilization: 25
+#  - type: Resource
+#    resource:
+#      name: cpu
+#      target:
+#        type: Utilization
+#        averageUtilization: 25
+# https://github.com/kubernetes/enhancements/blob/master/keps/sig-autoscaling/853-configurable-hpa-scale-velocity/README.md
+  behavior:
+    #scaleUp:
+    scaleDown:
+      stabilizationWindowSeconds: 15 # seconds wait before scaling down
+      policies:
+      - type: Pods
+        value: 1 # scale down 1 pod at a time
+        periodSeconds: 20 # seconds wait before another scale down allowed
+      selectPolicy: Max
+
